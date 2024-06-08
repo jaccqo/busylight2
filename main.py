@@ -1,6 +1,6 @@
 import requests
-import termcolor
 import colorama
+from termcolor import colored
 
 class BusylightController:
     COLOR_MAP = {
@@ -10,7 +10,7 @@ class BusylightController:
         "available": (0, 0, 255) # Blue
         # You can add more states and colors here
     }
-    
+
     def __init__(self, base_url="http://localhost:8989"):
         self.base_url = base_url
 
@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
     # Check the response status code
     if response.status_code == 200:
-        print("Busylight set to busy")
+        print(colored("Busylight set to busy","green"))
     else:
         print(f"Error: {response.status_code}")
 
