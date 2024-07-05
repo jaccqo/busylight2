@@ -41,16 +41,14 @@ class BusylightController:
         return response
 
 if __name__ == "__main__":
-    # Create an instance of BusylightController
+  
     busylight_controller = BusylightController()
 
-    # Example usage: set the Busylight to busy state (red)
     color = busylight_controller.parse_color("busy")
 
     response = busylight_controller.send_request("light", color)
     print(response.text)
 
-    # Check the response status code
     if response.status_code == 200:
         print(colored("Busylight set to busy","green"))
     else:
@@ -59,8 +57,3 @@ if __name__ == "__main__":
     # Example usage: play a sound
     response = busylight_controller.play_sound(3)
 
-    # Check the response status code
-    if response.status_code == 200:
-        print("Sound played successfully")
-    else:
-        print(f"Error playing sound: {response.status_code}")
