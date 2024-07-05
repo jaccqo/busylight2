@@ -4,7 +4,7 @@ from termcolor import colored
 
 class BusylightController:
     COLOR_MAP = {
-        "busy": (255, 0, 0),     # Red
+        "no call": (255, 0, 0),     # Red
         "on call": (0, 255, 0),  # Green
         "away": (255, 255, 0),   # Yellow
         "available": (0, 0, 255) # Blue
@@ -33,27 +33,26 @@ class BusylightController:
     def play_sound(self, sound_number):
         action = "alert"
         params = {
-            "red": 0,
+    
             "sound": sound_number,
-            "volume": 75
+            "volume": 0
         }
         response = self.send_request(action, params)
         return response
 
-if __name__ == "__main__":
-  
-    busylight_controller = BusylightController()
 
-    color = busylight_controller.parse_color("busy")
+# busylight_controller = BusylightController()
 
-    response = busylight_controller.send_request("light", color)
-    print(response.text)
+# color = busylight_controller.parse_color("busy")
 
-    if response.status_code == 200:
-        print(colored("Busylight set to busy","green"))
-    else:
-        print(f"Error: {response.status_code}")
+# response = busylight_controller.send_request("light", color)
+# print(response.text)
 
-    # Example usage: play a sound
-    response = busylight_controller.play_sound(3)
+# if response.status_code == 200:
+#     print(colored("Busylight set to busy","green"))
+# else:
+#     print(f"Error: {response.status_code}")
+
+# # Example usage: play a sound
+# response = busylight_controller.play_sound(3)
 
