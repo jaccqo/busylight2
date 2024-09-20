@@ -6,9 +6,9 @@ class BusylightController:
     COLOR_MAP = {
         "no call": (255, 0, 0),     # Red
         "on call": (0, 255, 0),  # Green
-        "away": (255, 255, 0),   # Yellow
-        "available": (0, 0, 255) # Blue
-        # You can add more states and colors here
+        "break": (255, 255, 0),   # Yellow
+        "invoice": (0, 0, 255) # Blue
+        #  more states and colors here
     }
 
     def __init__(self, base_url="http://localhost:8989"):
